@@ -1,0 +1,8 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "/usr/local/bin/docker-entrypoint.sh gateway"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
