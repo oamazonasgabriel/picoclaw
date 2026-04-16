@@ -3,8 +3,8 @@ package channels
 import (
 	"context"
 	"fmt"
-	"path/filepath"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 

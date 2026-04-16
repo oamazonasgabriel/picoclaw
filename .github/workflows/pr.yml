@@ -16,9 +16,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Check formatting
-        run: |
-          make fmt
-          git diff --exit-code || (echo "::error::Code is not formatted. Run 'make fmt' and commit the changes." && exit 1)
+        run: make fmt-check
 
   vet:
     runs-on: ubuntu-latest

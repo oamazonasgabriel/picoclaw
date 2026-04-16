@@ -1,4 +1,4 @@
-.PHONY: all build install uninstall clean help test
+.PHONY: all build install uninstall clean help test fmt-check
 
 # Build variables
 BINARY_NAME=picoclaw
@@ -130,6 +130,11 @@ test:
 ## fmt: Format Go code
 fmt:
 	@$(GO) fmt ./...
+
+## fmt-check: Verify formatting (same as CI; set GO or PATH so go resolves to your toolchain)
+fmt-check:
+	@$(GO) fmt ./...
+	@git diff --exit-code || (echo "::error::Code is not formatted. Run 'make fmt' and commit the changes." && exit 1)
 
 ## deps: Update dependencies
 deps:
